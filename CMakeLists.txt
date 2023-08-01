@@ -1,12 +1,12 @@
 cmake_minimum_required(VERSION 3.25)
 
+set(name bare_distributable)
+
 project(
-  bare_distributable
+  ${name}
   VERSION 1.0
   LANGUAGES C CXX
 )
-
-set(name bare_distributable)
 
 include(bare)
 
