@@ -66,5 +66,5 @@ link_bare_module(
 
 install(
   TARGETS ${name}_bin
-  BUNDLE DESTINATION ${target}
+  RUNTIME DESTINATION ${target}
 )
