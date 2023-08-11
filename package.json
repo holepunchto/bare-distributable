@@ -1,26 +1,33 @@
 {
   "private": true,
-  "name": "bare-distributable",
+  "name": "bare-runtime",
   "workspaces": [
     "vendor/*"
   ],
   "scripts": {
-    "test": "standard"
+    "test": "standard",
+    "smoke": "npx bare-dev build && cd build && mv bare-runtime ../../pear/by-arch/bare/bare && ../../pear/by-arch/bare/bare"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/holepunchto/bare-distributable.git"
+    "url": "git+https://github.com/holepunchto/pear-bare.git"
   },
   "author": "Holepunch",
   "license": "Apache-2.0",
   "bugs": {
-    "url": "https://github.com/holepunchto/bare-distributable/issues"
+    "url": "https://github.com/holepunchto/pear-bare/issues"
   },
-  "homepage": "https://github.com/holepunchto/bare-distributable#readme",
+  "homepage": "https://github.com/holepunchto/pear-bare#readme",
   "dependencies": {
-    "bare-fs": "^1.6.9"
+    "bare-events": "^1.2.2",
+    "bare-fs": "^1.6.9",
+    "bare-os": "^1.1.4"
   },
   "devDependencies": {
     "standard": "^17.0.0"
-  }
+  },
+  "description": "## Build",
+  "version": "1.0.0",
+  "main": "index.js",
+  "keywords": []
 }

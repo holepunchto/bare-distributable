@@ -1,6 +1,6 @@
 cmake_minimum_required(VERSION 3.25)
 
-set(name bare_distributable)
+set(name bare-runtime)
 
 project(
   ${name}
@@ -62,6 +62,12 @@ link_bare_module(
   ${name}_bin
   bare_fs
   node_modules/bare-fs
+)
+
+link_bare_module(
+  ${name}_bin
+  bare_os
+  node_modules/bare-os
 )
 
 install(
