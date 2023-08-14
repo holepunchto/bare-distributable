@@ -21,7 +21,11 @@
   "dependencies": {
     "bare-events": "^1.2.2",
     "bare-fs": "^1.6.9",
-    "bare-os": "^1.1.4"
+    "bare-os": "^1.1.4",
+    "bare-pipe": "^1.1.2",
+    "bare-repl": "^0.2.0",
+    "bare-subprocess": "^1.0.1",
+    "bare-url": "^0.0.0"
   },
   "devDependencies": {
     "standard": "^17.0.0"

@@ -3,6 +3,10 @@
     "fs": "bare-fs",
     "fs/promises": "bare-fs/promises",
     "os": "bare-os",
-    "events": "bare-events"
+    "child_process": "bare-subprocess",
+    "events": "bare-events",
+    "repl": "bare-repl",
+    "url": "bare-url",
+    "bare-pipe": "bare-pipe"
   }
 }
