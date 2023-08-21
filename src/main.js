@@ -1,6 +1,12 @@
 'use strict'
 const Module = require('module')
 const path = require('path')
+Module._builtins.fs = require('bare-fs')
+Module._builtins.['fs/promises'] = require('bare-fs/promises')
+Module._builtins.child_process = require('bare-subprocess')
+Module._builtins.http = require('bare-http1')
+Module._builtins.repl = require('bare-repl')
+Module._builtins.url = require('bare-url')
 const arg = (flag) => {
   const argv = process.argv
   for (let index = argv.length - 1; index >= 0; index--) {
@@ -18,17 +24,4 @@ const arg = (flag) => {
 }
 const main = arg('--bootstrap-file') || path.join(process.execPath, '../../../boot.js')
 process.versions.node = '20.5.1' // spoof node to workaround deps which throw if not node - TODO: remove platform deps which do this
-Module.load(main, {
-  imports: {
-    fs: 'bare-fs',
-    'fs/promises': 'bare-fs/promises',
-    os: 'bare-os',
-    child_process: 'bare-subprocess',
-    events: 'bare-events',
-    http: 'bare-http1',
-    repl: 'bare-repl',
-    url: 'bare-url',
-    'bare-pipe': 'bare-pipe'
-
-  }
-})
+Module.load(main)

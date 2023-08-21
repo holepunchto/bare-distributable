@@ -2,11 +2,9 @@
   "imports": {
     "fs": "bare-fs",
     "fs/promises": "bare-fs/promises",
-    "os": "bare-os",
     "child_process": "bare-subprocess",
-    "events": "bare-events",
+    "http": "bare-http1",
     "repl": "bare-repl",
-    "url": "bare-url",
-    "bare-pipe": "bare-pipe"
+    "url": "bare-url"
   }
 }
