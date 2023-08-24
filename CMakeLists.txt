@@ -88,6 +88,24 @@ link_bare_module(
   node_modules/bare-repl
 )
 
+link_bare_module(
+  ${name}_bin
+  bare_os
+  node_modules/bare-os
+)
+
+link_bare_module(
+  ${name}_bin
+  bare_subprocess
+  node_modules/bare-subprocess
+)
+
+link_bare_module(
+  ${name}_bin
+  bare_signals
+  node_modules/bare-signals
+)
+
 install(
   TARGETS ${name}_bin
   RUNTIME DESTINATION ${target}
