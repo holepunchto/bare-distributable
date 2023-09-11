@@ -14,6 +14,11 @@ bare_target(target)
 
 add_subdirectory(vendor/bare EXCLUDE_FROM_ALL)
 
+add_compile_definitions(
+  BARE_MODULE_REGISTER_CONSTRUCTOR
+  NAPI_MODULE_REGISTER_CONSTRUCTOR
+)
+
 add_library(${name}_obj OBJECT)
 
 set_target_properties(
