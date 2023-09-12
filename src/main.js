@@ -8,6 +8,7 @@ Module._builtins.child_process = require('bare-subprocess')
 Module._builtins.http = require('bare-http1')
 Module._builtins.repl = require('bare-repl')
 Module._builtins.url = require('bare-url')
+Module._builtins.net = {} // noop net to avoid throw re node code on dep resolution pass
 const arg = (flag) => {
   const argv = process.argv
   for (let index = argv.length - 1; index >= 0; index--) {
@@ -24,5 +25,6 @@ const arg = (flag) => {
   return false
 }
 const main = arg('--bootstrap-file') || path.join(process.execPath, '..', '..', '..', '..', '..', 'boot.js')
+process.argv.splice(1, 0, 'pear')
 process.versions.node = '20.5.1' // spoof node to workaround deps which throw if not node - TODO: remove platform deps which do this
 Module.load(main)
