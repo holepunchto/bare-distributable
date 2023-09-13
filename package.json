@@ -6,7 +6,7 @@
   ],
   "scripts": {
     "test": "standard",
-    "smoke": "npx bare-dev build && cd build && mkdir -p ../../pear/by-arch/darwin-arm64/bin/bare &&  mv bare-runtime ../../pear/by-arch/darwin-arm64/bin/bare/bare && ../../pear/by-arch/darwin-arm64/bin/bare/bare"
+    "smoke": "npx bare-dev build && cd build && mkdir -p ../../pear/by-arch/darwin-arm64/bin/bare &&  mv bare-runtime ../../pear/by-arch/darwin-arm64/bin/bare/bare && ../../pear/by-arch/darwin-arm64/bin/bare/bare -v"
   },
   "repository": {
     "type": "git",
@@ -25,7 +25,7 @@
     "bare-pipe": "^1.1.2",
     "bare-repl": "^0.3.2",
     "bare-signals": "^1.1.0",
-    "bare-subprocess": "^1.0.1",
+    "bare-subprocess": "^1.2.0",
     "bare-url": "^0.1.1"
   },
   "devDependencies": {
