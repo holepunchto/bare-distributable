@@ -54,6 +54,7 @@ add_executable(${name}_bin $<TARGET_OBJECTS:${name}_obj>)
 set_target_properties(
   ${name}_bin
   PROPERTIES
+  ENABLE_EXPORTS ON
   OUTPUT_NAME ${name}
 )
 
