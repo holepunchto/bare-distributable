@@ -19,13 +19,14 @@
   },
   "homepage": "https://github.com/holepunchto/pear-bare#readme",
   "dependencies": {
-    "bare-fs": "^1.6.9",
+    "bare-fs": "^1.7.0",
     "bare-http1": "^1.1.3",
     "bare-os": "^1.2.0",
     "bare-pipe": "^1.1.2",
     "bare-repl": "^0.3.2",
     "bare-signals": "^1.1.0",
     "bare-subprocess": "^1.2.0",
+    "bare-tty": "^2.1.0",
     "bare-url": "^0.1.1"
   },
   "devDependencies": {
