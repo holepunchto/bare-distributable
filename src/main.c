@@ -15,7 +15,7 @@ main (int argc, char *argv[]) {
   assert(err == 0);
 
   bare_t *bare;
-  err = bare_setup(uv_default_loop(), platform, argc, argv, NULL, &bare);
+  err = bare_setup(uv_default_loop(), platform, NULL, argc, argv, NULL, &bare);
   assert(err == 0);
 
   uv_buf_t source = uv_buf_init((char *) bundle, bundle_len);
@@ -28,6 +28,9 @@ main (int argc, char *argv[]) {
   assert(err == 0);
 
   err = js_destroy_platform(platform);
+  assert(err == 0);
+
+  err = uv_run(uv_default_loop(), UV_RUN_ONCE);
   assert(err == 0);
 
   return exit_code;
