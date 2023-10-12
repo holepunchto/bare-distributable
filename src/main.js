@@ -1,13 +1,6 @@
 'use strict'
 const Module = require('module')
 const path = require('path')
-Module._builtins.fs = require('bare-fs')
-Module._builtins['fs/promises'] = require('bare-fs/promises')
-Module._builtins.os = require('bare-os')
-Module._builtins.child_process = require('bare-subprocess')
-Module._builtins.http = require('bare-http1')
-Module._builtins.repl = require('bare-repl')
-Module._builtins.url = require('bare-url')
 const arg = (flag) => {
   const argv = process.argv
   for (let index = argv.length - 1; index >= 0; index--) {

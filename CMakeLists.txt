@@ -1,6 +1,6 @@
 cmake_minimum_required(VERSION 3.25)
 
-set(name bare-runtime)
+set(name pear)
 
 project(
   ${name}
@@ -62,54 +62,6 @@ target_link_libraries(
   ${name}_bin
   PRIVATE
     $<LINK_LIBRARY:WHOLE_ARCHIVE,bare_static>
-)
-
-link_bare_module(
-  ${name}_bin
-  bare_fs
-  node_modules/bare-fs
-)
-
-link_bare_module(
-  ${name}_bin
-  bare_pipe
-  node_modules/bare-pipe
-)
-
-link_bare_module(
-  ${name}_bin
-  bare_http1
-  node_modules/bare-http1
-)
-
-link_bare_module(
-  ${name}_bin
-  bare_tty
-  node_modules/bare-tty
-)
-
-link_bare_module(
-  ${name}_bin
-  bare_repl
-  node_modules/bare-repl
-)
-
-link_bare_module(
-  ${name}_bin
-  bare_os
-  node_modules/bare-os
-)
-
-link_bare_module(
-  ${name}_bin
-  bare_subprocess
-  node_modules/bare-subprocess
-)
-
-link_bare_module(
-  ${name}_bin
-  bare_signals
-  node_modules/bare-signals
 )
 
 install(
