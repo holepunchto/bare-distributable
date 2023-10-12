@@ -17,5 +17,4 @@ const arg = (flag) => {
   return false
 }
 const main = arg('--bootstrap-file') || path.join(process.execPath, '..', '..', '..', '..', '..', 'boot.js')
-process.versions.node = '20.5.1' // spoof node to workaround deps which throw if not node - TODO: remove platform deps which do this
 Module.load(main)
