@@ -2,7 +2,7 @@
 const Module = require('module')
 Module._builtins.fs = require('bare-fs')
 Module._builtins['fs/promises'] = require('bare-fs/promises')
-Module._builtins['child_process'] = require('bare-subprocess')
+Module._builtins.child_process = require('bare-subprocess')
 Module._builtins.http = require('bare-http1')
 Module._builtins.repl = require('bare-repl')
 Module._builtins.url = require('bare-url')
@@ -30,16 +30,16 @@ const main = arg('--bootstrap-file') || path.join(process.execPath, '..', '..', 
 process.versions.node = '99.99.99'
 Module.load(main, {
   imports: {
-    events: "bare-events",
-    os: "bare-os",
-    path: "bare-path",
-    pipe: "bare-pipe",
-    tty: "bare-tty",
-    fs: "bare-fs",
-    "fs/promises": "bare-fs/promises",
-    child_process: "bare-subprocess",
-    http: "bare-http1",
-    repl: "bare-repl",
-    url: "bare-url"
+    events: 'bare-events',
+    os: 'bare-os',
+    path: 'bare-path',
+    pipe: 'bare-pipe',
+    tty: 'bare-tty',
+    fs: 'bare-fs',
+    'fs/promises': 'bare-fs/promises',
+    child_process: 'bare-subprocess',
+    http: 'bare-http1',
+    repl: 'bare-repl',
+    url: 'bare-url'
   }
 })
