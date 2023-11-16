@@ -18,7 +18,8 @@
   },
   "homepage": "https://github.com/holepunchto/bare-distributable#readme",
   "dependencies": {
-    "bare-fs": "^1.6.9"
+    "bare-events": "^2.0.0",
+    "bare-fs": "^2.0.0"
   },
   "devDependencies": {
     "standard": "^17.0.0"

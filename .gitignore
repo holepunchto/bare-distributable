@@ -8,3 +8,4 @@ install
 *.js.h
 *.bundle
 *.bundle.h
+*.d

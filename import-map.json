@@ -1,5 +1,6 @@
 {
   "imports": {
+    "events": "bare-events",
     "fs": "bare-fs"
   }
 }
