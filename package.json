@@ -4,6 +4,10 @@
   "workspaces": [
     "vendor/*"
   ],
+  "imports": {
+    "events": "bare-events",
+    "fs": "bare-fs"
+  },
   "scripts": {
     "test": "standard"
   },
