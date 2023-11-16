@@ -10,12 +10,29 @@ main (int argc, char *argv[]) {
 
   argv = uv_setup_args(argc, argv);
 
+  char prebuilds[PATH_MAX];
+  size_t size = sizeof(prebuilds);
+
+  err = uv_exepath(prebuilds, &size);
+  assert(err == 0);
+
+  for (int i = 0, up = 0; i < size && up < 5; i++) {
+    if (prebuilds[i] == '/' || prebuilds[i] == '\\') {
+      up++;
+      if (up < 5) continue;
+      prebuilds[i] = '\0';
+      break;
+    }
+  }
+  
   js_platform_t *platform;
   err = js_create_platform(uv_default_loop(), NULL, &platform);
   assert(err == 0);
 
   bare_t *bare;
-  err = bare_setup(uv_default_loop(), platform, NULL, argc, argv, NULL, &bare);
+  struct bare_options_s opts;
+  opts.addons = prebuilds; // Set the execPath here
+  err = bare_setup(uv_default_loop(), platform, NULL, argc, argv, &opts, &bare);
   assert(err == 0);
 
   uv_buf_t source = uv_buf_init((char *) bundle, bundle_len);

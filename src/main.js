@@ -1,5 +1,14 @@
 'use strict'
 const Module = require('module')
+Module._builtins.fs = require('bare-fs')
+Module._builtins['fs/promises'] = require('bare-fs/promises')
+Module._builtins['child_process'] = require('bare-subprocess')
+Module._builtins.http = require('bare-http1')
+Module._builtins.repl = require('bare-repl')
+Module._builtins.url = require('bare-url')
+Module._builtins['bare-pipe'] = require('bare-pipe')
+Module._builtins['bare-tty'] = require('bare-tty')
+global.process = require('bare-process')
 const path = require('path')
 const arg = (flag) => {
   const argv = process.argv
@@ -17,4 +26,20 @@ const arg = (flag) => {
   return false
 }
 const main = arg('--bootstrap-file') || path.join(process.execPath, '..', '..', '..', '..', '..', 'boot.js')
-Module.load(main)
+// TODO: remove after `is-core-module` dep is gone (by replacing `resolve` in `script-linker`)
+process.versions.node = '99.99.99'
+Module.load(main, {
+  imports: {
+    events: "bare-events",
+    os: "bare-os",
+    path: "bare-path",
+    pipe: "bare-pipe",
+    tty: "bare-tty",
+    fs: "bare-fs",
+    "fs/promises": "bare-fs/promises",
+    child_process: "bare-subprocess",
+    http: "bare-http1",
+    repl: "bare-repl",
+    url: "bare-url"
+  }
+})

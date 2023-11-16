@@ -20,9 +20,31 @@
     "url": "https://github.com/holepunchto/pear-bare/issues"
   },
   "homepage": "https://github.com/holepunchto/pear-bare#readme",
+  "imports": {
+    "events": "bare-events",
+    "os": "bare-os",
+    "path": "bare-path",
+    "pipe": "bare-pipe",
+    "tty": "bare-tty",
+    "fs": "bare-fs",
+    "fs/promises": "bare-fs/promises",
+    "child_process": "bare-subprocess",
+    "http": "bare-http1",
+    "repl": "bare-repl",
+    "url": "bare-url"
+  },
   "dependencies": {
+    "bare-events": "^2.0.0",
+    "bare-fs": "^1.13.3",
+    "bare-http1": "^1.2.0",
+    "bare-os": "^2.0.0",
+    "bare-path": "^2.0.0",
+    "bare-pipe": "^1.4.1",
+    "bare-process": "^1.2.0",
     "bare-repl": "^0.4.1",
-    "bare-tty": "^2.1.4"
+    "bare-subprocess": "^1.2.1",
+    "bare-tty": "^2.1.5",
+    "bare-url": "^0.2.0"
   },
   "devDependencies": {
     "standard": "^17.0.0"

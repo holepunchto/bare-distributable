@@ -32,7 +32,7 @@ set_target_properties(
 add_bare_bundle(
   ENTRY src/main.js
   OUT src/main.bundle.h
-  IMPORT_MAP import-map.json
+  IMPORT_MAP package.json
   TARGET c
 )
 
@@ -62,6 +62,42 @@ target_link_libraries(
   ${name}_bin
   PRIVATE
     $<LINK_LIBRARY:WHOLE_ARCHIVE,bare_static>
+)
+
+link_bare_module(
+  ${name}_bin
+  bare_fs
+  node_modules/bare-fs
+)
+
+link_bare_module(
+  ${name}_bin
+  bare_subprocess
+  node_modules/bare-subprocess
+)
+
+link_bare_module(
+  ${name}_bin
+  bare_http1
+  node_modules/bare-http1
+)
+
+link_bare_module(
+  ${name}_bin
+  bare_repl
+  node_modules/bare-repl
+)
+
+link_bare_module(
+  ${name}_bin
+  bare_pipe
+  node_modules/bare-pipe
+)
+
+link_bare_module(
+  ${name}_bin
+  bare_tty
+  node_modules/bare-tty
 )
 
 install(
