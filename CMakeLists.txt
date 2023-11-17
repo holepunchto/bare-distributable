@@ -5,7 +5,7 @@ set(name bare_distributable)
 project(
   ${name}
   VERSION 1.0
-  LANGUAGES C CXX
+  LANGUAGES C
 )
 
 include(bare)
@@ -19,8 +19,7 @@ add_library(${name}_obj OBJECT)
 set_target_properties(
   ${name}_obj
   PROPERTIES
-  C_STANDARD 99
-  CXX_STANDARD 20
+  C_STANDARD 11
   POSITION_INDEPENDENT_CODE ON
 )
 
