@@ -100,6 +100,18 @@ link_bare_module(
   node_modules/bare-tty
 )
 
+link_bare_module(
+  ${name}_bin
+  bare_env
+  node_modules/bare-env
+)
+
+link_bare_module(
+  ${name}_bin
+  bare_module
+  node_modules/bare-module
+)
+
 install(
   TARGETS ${name}_bin
   RUNTIME DESTINATION ${target}
