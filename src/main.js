@@ -1,8 +1,7 @@
 'use strict'
-global.process = require('bare-process')
+const process = require('bare-process')
 const Module = require('bare-module')
-const path = require('path')
-
+const path = require('bare-path')
 const arg = (flag) => {
   const argv = process.argv
   for (let index = argv.length - 1; index >= 0; index--) {
@@ -21,20 +20,33 @@ const arg = (flag) => {
 const main = arg('--bootstrap-file') || path.join(process.execPath, '..', '..', '..', '..', '..', 'boot.js')
 // TODO: remove after `is-core-module` dep is gone (by replacing `resolve` in `script-linker`)
 process.versions.node = '99.99.99'
+
+const events = require('bare-events')
+const fs = require('bare-fs')
+const fsp = require('bare-fs/promises')
+const http = require('bare-http1')
+const os = require('bare-os')
+const child_process = require('bare-subprocess')
+const repl = require('bare-repl')
+const url = require('bare-url')
+global.process = process
 Module.load(main, {
   builtins: {
-    events: require('bare-events'),
-    fs: require('bare-fs'),
-    'fs/promises': require('bare-fs/promises'),
-    http: require('bare-http1'),
+    events, fs, http, os, path, child_process, repl, url,
+    'fs/promises': fsp,
     module: Module,
-    os: require('bare-os'),
-    path: require('bare-path'),
-    process: global.process,
-    child_process: require('bare-subprocess'),
-    repl: require('bare-repl'),
-    url: require('bare-url'),
+    process: process,
+    'bare-module': Module,
+    'bare-process': process,
+    'bare-events': events,
+    'bare-fs': fs,
+    'bare-fs/promises': fsp,
+    'bare-http1': http,
+    'bare-os': os,
+    'bare-path': path,
+    'bare-repl': repl,
+    'bare-url': url,
     'bare-pipe': require('bare-pipe'),
-    'bare-tty': require('bare-tty'),
+    'bare-tty': require('bare-tty')
   }
 })
