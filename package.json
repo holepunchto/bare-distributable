@@ -50,7 +50,6 @@
   "devDependencies": {
     "standard": "^17.0.0"
   },
-  "description": "## Build",
   "version": "1.0.0",
   "main": "index.js",
   "keywords": []
