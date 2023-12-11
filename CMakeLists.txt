@@ -58,11 +58,7 @@ target_link_libraries(
     $<LINK_LIBRARY:WHOLE_ARCHIVE,bare_static>
 )
 
-link_bare_module(
-  ${name}_bin
-  bare_fs
-  node_modules/bare-fs
-)
+link_bare_module(${name}_bin bare_fs bare-fs)
 
 install(
   TARGETS ${name}_bin
