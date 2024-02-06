@@ -12,6 +12,8 @@ include(bare)
 
 bare_target(target)
 
+install_node_modules()
+
 add_subdirectory(vendor/bare EXCLUDE_FROM_ALL)
 
 add_library(${name}_obj OBJECT)
@@ -26,7 +28,6 @@ set_target_properties(
 add_bare_bundle(
   ENTRY src/main.js
   OUT src/main.bundle.h
-  IMPORT_MAP package.json
   TARGET c
 )
 

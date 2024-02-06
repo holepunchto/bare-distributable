@@ -1,9 +1,6 @@
 {
   "private": true,
   "name": "bare-distributable",
-  "workspaces": [
-    "vendor/*"
-  ],
   "imports": {
     "events": "bare-events",
     "fs": "bare-fs"
