@@ -12,7 +12,7 @@ include(bare)
 
 bare_target(target)
 
-install_node_modules()
+install_node_modules(LOCKFILE)
 
 add_subdirectory(vendor/bare EXCLUDE_FROM_ALL)
 
@@ -59,7 +59,7 @@ target_link_libraries(
     $<LINK_LIBRARY:WHOLE_ARCHIVE,bare_static>
 )
 
-link_bare_module(${name}_bin bare_fs bare-fs)
+link_bare_modules(${name}_bin)
 
 install(
   TARGETS ${name}_bin
