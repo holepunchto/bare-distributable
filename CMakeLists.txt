@@ -38,13 +38,15 @@ target_sources(
     src/main.c
 )
 
-target_include_directories(
+target_link_libraries(
   ${name}_obj
   PUBLIC
-    $<TARGET_PROPERTY:bare,INTERFACE_INCLUDE_DIRECTORIES>
+    $<LINK_LIBRARY:WHOLE_ARCHIVE,bare_static>
 )
 
-add_executable(${name}_bin $<TARGET_OBJECTS:${name}_obj>)
+link_bare_modules(${name}_obj)
+
+add_executable(${name}_bin)
 
 set_target_properties(
   ${name}_bin
@@ -56,10 +58,8 @@ set_target_properties(
 target_link_libraries(
   ${name}_bin
   PRIVATE
-    $<LINK_LIBRARY:WHOLE_ARCHIVE,bare_static>
+    ${name}_obj
 )
-
-link_bare_modules(${name}_bin)
 
 install(
   TARGETS ${name}_bin
