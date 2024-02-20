@@ -2,11 +2,7 @@ cmake_minimum_required(VERSION 3.25)
 
 set(name bare_distributable)
 
-project(
-  ${name}
-  VERSION 1.0
-  LANGUAGES C
-)
+project(${name} C)
 
 include(bare)
 
@@ -16,14 +12,17 @@ install_node_modules(LOCKFILE)
 
 add_subdirectory(vendor/bare EXCLUDE_FROM_ALL)
 
-add_library(${name}_obj OBJECT)
+add_library(${name} STATIC)
 
-set_target_properties(
-  ${name}_obj
-  PROPERTIES
-  C_STANDARD 11
-  POSITION_INDEPENDENT_CODE ON
+target_link_libraries(
+  ${name}
+  PUBLIC
+    $<LINK_LIBRARY:WHOLE_ARCHIVE,bare_static>
 )
+
+link_bare_modules(${name} AMALGAMATE)
+
+add_executable(${name}_bin)
 
 add_bare_bundle(
   ENTRY src/main.js
@@ -32,21 +31,11 @@ add_bare_bundle(
 )
 
 target_sources(
-  ${name}_obj
+  ${name}_bin
   PRIVATE
     src/main.bundle.h
     src/main.c
 )
-
-target_link_libraries(
-  ${name}_obj
-  PUBLIC
-    $<LINK_LIBRARY:WHOLE_ARCHIVE,bare_static>
-)
-
-link_bare_modules(${name}_obj)
-
-add_executable(${name}_bin)
 
 set_target_properties(
   ${name}_bin
@@ -57,11 +46,6 @@ set_target_properties(
 
 target_link_libraries(
   ${name}_bin
-  PRIVATE
-    ${name}_obj
-)
-
-install(
-  TARGETS ${name}_bin
-  RUNTIME DESTINATION ${target}
+  PUBLIC
+    ${name}
 )
