@@ -1,12 +1,8 @@
 {
   "private": true,
   "name": "bare-distributable",
-  "imports": {
-    "events": "bare-events",
-    "fs": "bare-fs"
-  },
   "scripts": {
-    "test": "standard"
+    "test": "prettier . --check"
   },
   "repository": {
     "type": "git",
@@ -18,11 +14,10 @@
     "url": "https://github.com/holepunchto/bare-distributable/issues"
   },
   "homepage": "https://github.com/holepunchto/bare-distributable#readme",
-  "dependencies": {
-    "bare-events": "^2.0.0",
-    "bare-fs": "^2.0.0"
-  },
   "devDependencies": {
-    "standard": "^17.0.0"
+    "cmake-bare-bundle": "^2.1.3",
+    "cmake-fetch": "^1.2.0",
+    "prettier": "^3.5.3",
+    "prettier-config-standard": "^7.0.0"
   }
 }

@@ -5,7 +5,7 @@
 #include "main.bundle.h"
 
 int
-main (int argc, char *argv[]) {
+main(int argc, char *argv[]) {
   int err;
 
   argv = uv_setup_args(argc, argv);
@@ -15,12 +15,15 @@ main (int argc, char *argv[]) {
   assert(err == 0);
 
   bare_t *bare;
-  err = bare_setup(uv_default_loop(), platform, NULL, argc, argv, NULL, &bare);
+  err = bare_setup(uv_default_loop(), platform, NULL, argc, (const char **) argv, NULL, &bare);
   assert(err == 0);
 
-  uv_buf_t source = uv_buf_init((char *) bundle, bundle_len);
+  uv_buf_t source = uv_buf_init((char *) main_bundle, main_bundle_len);
 
-  err = bare_run(bare, "/main.bundle", &source);
+  err = bare_load(bare, "/main.bundle", &source, NULL);
+  assert(err == 0);
+
+  err = bare_run(bare);
   assert(err == 0);
 
   int exit_code;

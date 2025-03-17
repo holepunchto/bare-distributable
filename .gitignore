@@ -1,8 +1,6 @@
 node_modules
 build
-prebuilds
 sandbox
-corestore
 install
 *.js.h
 *.bundle
