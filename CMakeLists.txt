@@ -29,6 +29,7 @@ set_target_properties(
   ${name}
   PROPERTIES
   ENABLE_EXPORTS ON
+  MACOSX_BUNDLE FALSE
 )
 
 target_link_libraries(
