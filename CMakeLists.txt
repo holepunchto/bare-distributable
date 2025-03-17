@@ -38,3 +38,5 @@ target_link_libraries(
 )
 
 link_bare_modules(${name})
+
+install(TARGETS ${name})
