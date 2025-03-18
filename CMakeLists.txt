@@ -29,7 +29,8 @@ set_target_properties(
   ${name}
   PROPERTIES
   ENABLE_EXPORTS ON
-  MACOSX_BUNDLE FALSE
+  MACOSX_BUNDLE OFF
+  WINDOWS_EXPORT_ALL_SYMBOLS ON
 )
 
 target_link_libraries(
