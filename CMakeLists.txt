@@ -3,7 +3,7 @@ cmake_minimum_required(VERSION 3.31)
 find_package(cmake-bare-bundle REQUIRED PATHS node_modules/cmake-bare-bundle)
 find_package(cmake-fetch REQUIRED PATHS node_modules/cmake-fetch)
 
-fetch_package("github:holepunchto/bare@1.18.3")
+fetch_package("github:holepunchto/bare@1.19.0")
 
 set(name bare_distributable)
 
