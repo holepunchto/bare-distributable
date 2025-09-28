@@ -1,9 +1,9 @@
-cmake_minimum_required(VERSION 3.31)
+cmake_minimum_required(VERSION 4.0)
 
 find_package(cmake-bare-bundle REQUIRED PATHS node_modules/cmake-bare-bundle)
 find_package(cmake-fetch REQUIRED PATHS node_modules/cmake-fetch)
 
-fetch_package("github:holepunchto/bare@1.19.0")
+fetch_package("github:holepunchto/bare@1.22.1")
 
 set(name bare_distributable)
 
@@ -29,7 +29,6 @@ set_target_properties(
   ${name}
   PROPERTIES
   ENABLE_EXPORTS ON
-  MACOSX_BUNDLE OFF
   WINDOWS_EXPORT_ALL_SYMBOLS ON
 )
 
