@@ -1,5 +1,6 @@
 #include <assert.h>
 #include <bare.h>
+#include <js.h>
 #include <uv.h>
 
 #include "main.bundle.h"

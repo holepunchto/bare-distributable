@@ -3,41 +3,40 @@ cmake_minimum_required(VERSION 4.0)
 find_package(cmake-bare-bundle REQUIRED PATHS node_modules/cmake-bare-bundle)
 find_package(cmake-fetch REQUIRED PATHS node_modules/cmake-fetch)
 
-fetch_package("github:holepunchto/bare@1.23.4")
+fetch_package("github:holepunchto/bare@1.24.3")
 
-set(name bare_distributable)
-
-project(${name} C)
+project(bare_distributable C)
 
 add_bare_bundle(
-  ${name}_bundle
+  bare_distributable_bundle
   ENTRY src/main.js
   OUT src/main.bundle.h
   BUILTINS src/builtins.json
 )
 
-add_executable(${name})
+add_executable(bare_distributable)
 
 target_sources(
-  ${name}
+  bare_distributable
   PRIVATE
     src/main.bundle.h
     src/main.c
 )
 
 set_target_properties(
-  ${name}
+  bare_distributable
   PROPERTIES
+  OUTPUT_NAME my-bare
   ENABLE_EXPORTS ON
   WINDOWS_EXPORT_ALL_SYMBOLS ON
 )
 
 target_link_libraries(
-  ${name}
+  bare_distributable
   PUBLIC
     $<LINK_LIBRARY:WHOLE_ARCHIVE,bare_static>
 )
 
-link_bare_modules(${name})
+link_bare_modules(bare_distributable)
 
-install(TARGETS ${name})
+install(TARGETS bare_distributable)
